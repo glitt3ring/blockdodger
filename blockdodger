@@ -97,7 +97,7 @@ def title_screen(stdscr):
         stdscr.attroff(curses.color_pair(1))
 
         stdscr.addstr(sh - 6, 1, "Made by Glitt3ring", curses.color_pair(2))
-        stdscr.addstr(sh - 5, 1, "Check /usr/bin/blockdodgerreadme.txt", curses.color_pair(2))
+        stdscr.addstr(sh - 5, 1, "Check /usr/bin/blockdodgerreadme", curses.color_pair(2))
         stdscr.addstr(sh - 4, 1, "Press Enter to Start", curses.color_pair(2))
         stdscr.addstr(sh - 3, 1, "Arrow Keys to Move", curses.color_pair(2))
         stdscr.addstr(sh - 2, 1, "P to Pause | Q to Quit", curses.color_pair(2))
