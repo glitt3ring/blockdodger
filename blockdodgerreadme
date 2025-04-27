@@ -24,4 +24,12 @@ blockdodger
 
 RUN "speaker-test" TO MAKE SURE YOUR AUDIO WORKS, IF IT DOESN'T THEN THE GAME WON'T LAUNCH.
 USE "Q" INSTEAD OF "CTRL+C" OR ELSE YOUR HIGHSCORE WON'T SAVE.
+
+IF YOU WANT TO REMOVE THE PACKAGE WITH YAY THEN:
+yay -Rns blockdodger
+rm -rf ~/.cache/yay/blockdodger
+sudo rm -rf /usr/bin/blockdodger*
+cd /
+sudo find -name "*blockdodger*" -delete
+
 Made by Glitt3ring.
