@@ -8,6 +8,8 @@ pipewire-audio
 pipewire-pulse
 python
 python-pygame
+sudo
+wireplumber
 
 The Game Package:
 blockdodger (AUR)
