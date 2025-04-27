@@ -32,4 +32,6 @@ sudo rm -rf /usr/bin/blockdodger*
 cd /
 sudo find -name "*blockdodger*" -delete
 
+DO NOT HOLD THE ARROW KEYS WHILE MOVING JUST SPAM THE ARROW KEYS.
+
 Made by Glitt3ring.
