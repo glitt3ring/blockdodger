@@ -5,7 +5,6 @@ import random
 import pygame
 import os
 
-# Sound setup
 pygame.mixer.init()
 SOUNDS_PATH = os.path.join(os.path.dirname(__file__), "blockdodgersounds")
 
@@ -15,15 +14,12 @@ def play_sound(name):
     except:
         pass
 
-# High score path (Save in Home directory)
 HIGH_SCORE_PATH = os.path.join(os.path.expanduser("~"), "blockdodgerhighscore.txt")
 
-# High score
 def load_high_score():
     try:
         with open(HIGH_SCORE_PATH, "r") as f:
             score = int(f.read().strip())
-            # Clamp the score between 0 and 9999
             if score < 0:
                 save_high_score(0)
                 return 0
@@ -35,7 +31,6 @@ def load_high_score():
         return 0
 
 def save_high_score(score):
-    # Clamp the score between 0 and 9999
     score = max(0, min(score, 9999))
     with open(HIGH_SCORE_PATH, "w") as f:
         f.write(str(score))
@@ -75,10 +70,9 @@ def title_screen(stdscr):
         stdscr.clear()
         draw_border(stdscr)
 
-        # Typing effect
         if len(typed_text) < len(title_text):
             typed_text += title_text[len(typed_text)]
-            play_sound("type.wav")  # Play typing sound
+            play_sound("type.wav")
             stdscr.attron(curses.color_pair(2))
             stdscr.addstr(sh // 3, sw // 2 - len(title_text) // 2, typed_text)
             stdscr.attroff(curses.color_pair(2))
@@ -86,7 +80,6 @@ def title_screen(stdscr):
             time.sleep(0.1)
             continue
 
-        # Full title
         stdscr.attron(curses.color_pair(2))
         stdscr.addstr(sh // 3, sw // 2 - len(title_text) // 2, title_text)
         stdscr.attroff(curses.color_pair(2))
@@ -105,8 +98,8 @@ def title_screen(stdscr):
         stdscr.refresh()
 
         key = stdscr.getch()
-        if key in [10, 13]:  # Enter key
-            play_sound("start.wav")  # Play start button sound
+        if key in [10, 13]:
+            play_sound("start.wav")
             return
 
 def pause_menu(stdscr):
@@ -118,13 +111,12 @@ def pause_menu(stdscr):
     pause_win.addstr(3, 1, "Press 'P' to Resume", curses.color_pair(3))
     pause_win.refresh()
 
-    # Play pause sound when the game is paused
     play_sound("pause.wav")
 
     while True:
         key = stdscr.getch()
         if key == ord('p'):
-            play_sound("resume.wav")  # Play resume sound when game is resumed
+            play_sound("resume.wav")
             break
 
 def main(stdscr):
@@ -150,8 +142,8 @@ def main(stdscr):
 
     sh, sw = stdscr.getmaxyx()
     player_x = sw // 2
-    player_char = "##"  # 2x1 player
-    block_char = "##"   # 2x1 blocks
+    player_char = "##"
+    block_char = "##"
 
     blocks = []
     score = 0
@@ -169,14 +161,13 @@ def main(stdscr):
         stdscr.attroff(curses.color_pair(6))
 
         if random.random() < spawn_rate:
-            blocks.append([1, random.randint(1, sw - 3)])  # Random spawn considering block's width
+            blocks.append([1, random.randint(1, sw - 3)])
 
         for b in blocks:
             b[0] += 1
-            if b[0] < sh - 1 and b[1] < sw - 2:  # Ensure the block doesn't go past right edge
+            if b[0] < sh - 1 and b[1] < sw - 2:
                 stdscr.addstr(b[0], b[1], block_char, curses.color_pair(5))
 
-        # Collision detection for 2x1 player and block
         for b in blocks:
             if b[0] == sh - 2:
                 if (b[1] == player_x or b[1] == player_x + 1 or b[1] + 1 == player_x or b[1] + 1 == player_x + 1):
@@ -211,7 +202,7 @@ def main(stdscr):
         key = stdscr.getch()
         if key == ord("q"):
             if score > high_score:
-                save_high_score(score)  # Save high score if better when quitting
+                save_high_score(score)
             break
         elif key == curses.KEY_LEFT and player_x > 1:
             player_x -= 1
