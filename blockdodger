@@ -93,7 +93,7 @@ def title_screen(stdscr):
         stdscr.addstr(sh - 5, 1, "Press Enter to Start", curses.color_pair(2))
         stdscr.addstr(sh - 4, 1, "Arrow Keys to Move", curses.color_pair(2))
         stdscr.addstr(sh - 3, 1, "Press P to Pause.", curses.color_pair(2))
-        stdscr.addstr(sh - 2, 1, "Press Q to quit.", cursrs.color_par(2))
+        stdscr.addstr(sh - 2, 1, "Press Q to quit.", curses.color_pair(2))
         stdscr.refresh()
 
         key = stdscr.getch()
