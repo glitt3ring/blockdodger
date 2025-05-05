@@ -2,6 +2,7 @@ PREFIX = /usr
 
 all:
 	@sudo echo Run \'make install\' to install Blockdodger.
+	@echo Dependencies\: \'alsa-lib alsa-utils pipewire pipewire-alsa pipewire-audio pipewire-pulse python python-pygame sudo wireplumber\'
 
 install:
 	@sudo mkdir -p /usr/bin
