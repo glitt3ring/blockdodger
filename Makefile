@@ -1,15 +1,15 @@
 PREFIX = /usr
 
 all:
-	@echo Run \'make install\' to install Blockdodger.
+	@sudo echo Run \'make install\' to install Blockdodger.
 
 install:
-	@mkdir -p /usr/bin
-	@mv -v blockdodgersounds /usr/bin/
-	@mv -v blockdodger /usr/bin/
-	@chmod +x /usr/bin/blockdodger
+	@sudo mkdir -p /usr/bin
+	@sudo mv -v blockdodgersounds /usr/bin/
+	@sudo mv -v blockdodger /usr/bin/
+	@sudo chmod +x /usr/bin/blockdodger
 
 uninstall:
-	@rm -rf /usr/bin/blockdodger*
-	@rm -rf /usr/bin/blockdodgersounds*
-	@find -name "*blockdodgerhighscore.txt*" -delete
+	@sudo rm -rf /usr/bin/blockdodger*
+	@sudo rm -rf /usr/bin/blockdodgersounds*
+	@sudo find -name "*blockdodgerhighscore.txt*" -delete
