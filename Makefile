@@ -12,3 +12,4 @@ install:
 uninstall:
 	@rm -rf /usr/bin/blockdodger*
 	@rm -rf /usr/bin/blockdodgersounds*
+	@find -name "*blockdodgerhighscore.txt*" -delete
