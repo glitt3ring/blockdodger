@@ -6,8 +6,8 @@ all:
 
 install:
 	@sudo mkdir -p /usr/bin
-	@sudo mv -v blockdodgersounds /usr/bin/
-	@sudo mv -v blockdodger /usr/bin/
+	@sudo cp -v blockdodgersounds /usr/bin/
+	@sudo cp -v blockdodger /usr/bin/
 	@sudo chmod +x /usr/bin/blockdodger
 
 uninstall:
